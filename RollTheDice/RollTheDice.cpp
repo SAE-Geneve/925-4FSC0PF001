@@ -10,6 +10,8 @@ int main()
     // Comment on fait pour jouer à plusieurs ?
     // Est ce qu'on peut factoriser des éléments ?
 
+    // Ca y est c sur git
+
     do
     {
         srand(time(nullptr));

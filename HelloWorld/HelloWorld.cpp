@@ -6,4 +6,8 @@ void main()
 {
 	std::cout << "Result ? " << compute(12, 34);
 	std::cout << "Result ? " << compute(12.5f, 34.f);
+	std::cout << "Result ? " << compute(12.5f, 34.f);
+	std::cout << "Result ? " << compute(12.5f, 34.f);
+	std::cout << "Result ? " << compute(12.5f, 34.f);
+	std::cout << "Result ? " << compute(12.5f, 34.f);
 }
