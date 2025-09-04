@@ -11,6 +11,8 @@ int main()
     // Est ce qu'on peut factoriser des éléments ?
 
     // Ca y est c sur git
+    // Ca y est c sur git
+    // Ca y est c sur git
 
     do
     {
