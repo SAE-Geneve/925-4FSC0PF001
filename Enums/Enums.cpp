@@ -30,12 +30,14 @@ int main()
     
 
     do {
-
+        // Input
         std::cout << "\nPlease put an order >";
         char inputChar = _getch();
         std::cout << inputChar << "\n";
+
         // Do you exit ?
         if (inputChar == ESC) break;
+
         // Do you order ?
         PutAnOrder(inputChar);
 
