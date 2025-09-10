@@ -1,7 +1,9 @@
 #include <array>
 #include <iostream>
+#include <vector>
 
 #include "functions.h"
+#include "../RollTheDice/Dice.h"
 
 void main()
 {
@@ -46,7 +48,32 @@ void main()
 		}
 	}
 
+	bool exitA = false;
+	bool exitB = false;
+	bool exitC = false;
+
+	do
+	{
+		std::cout << "Run !!!!!!!!!!!!!!!!!!!!!!!!!\n";
+	} while (exitA || (exitB && exitC));
 
 
+	int size = 4;
 
+	std::vector<int> scores;
+
+	for (int i = 0; i < size; i++)
+	{
+		scores.emplace_back(0);
+	}
+
+	for (int s : scores)
+	{
+		std::cout << s;
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		scores.at(i) += Draw(6);
+	}
 }

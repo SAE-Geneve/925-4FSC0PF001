@@ -1,52 +1,86 @@
+#include <array>
 #include <iostream>
+#include <vector>
 
 #include "Dice.h"
-
 
 int main()
 {
 
-	int scorePlayerOne = 0;
-	int scorePlayerTwo = 0;
-
-	bool playerOneDone = false;
-	bool playerTwoDone = false;
+	std::vector<bool> continues;
+	std::vector<int> scores;
+	int nbPlayers = 3;
 
 	int diceResult = 0;
 	char exitOrNot = 'n';
 
-	// Comment on fait pour jouer à plusieurs ?
-	// Est ce qu'on peut factoriser des éléments ?
+	std::cout << "Nombre de joueurs ?\n";
+	std::cin >> nbPlayers;
+
+	for (int i = 0; i < nbPlayers; ++i)
+	{
+		continues.push_back(true);
+		scores.emplace_back(0);
+	}
+
 	InitDice();
 
 	do
 	{
 
-		diceResult = Draw(6);
-		std::cout << "DICE = " << diceResult << '\n';
+		std::cout << "New Turn -------------------------------------\n\n";
 
-		// Conditions de stop de la partie
-		if (diceResult == 1)
+		for (int idxPlayer = 0; idxPlayer < nbPlayers; ++idxPlayer)
 		{
-			scorePlayerOne = 0;
+			std::cout << "\n";
+			std::cout << "Player " << idxPlayer << "\n";
+
+			if (!continues[idxPlayer])
+			{
+				std::cout << "Pass ---" << "\n";
+				continue;
+			}
+
+			diceResult = Draw(6);
+			std::cout << "Dice = " << diceResult << '\n';
+
+			continues[idxPlayer] = CheckScore(diceResult, scores[idxPlayer]);
+
+			if (continues[idxPlayer])
+			{
+				continues[idxPlayer] = AskToContinue();
+			}
+
+			std::cout << "Score = " << scores[idxPlayer] << '\n';
+			std::cout << " = = = = = = = = = = = = = = = = = = = = = =\n";
+
 		}
-		else
+
+	}while (checkPlayersContinue(continues));
+
+
+	int bestScore = 0;
+	int idxWinner = -1;
+
+	for (int idxPlayer = 0; idxPlayer < nbPlayers; idxPlayer++)
+	{
+		if (scores[idxPlayer] > bestScore)
 		{
-			scorePlayerOne += diceResult;
+			bestScore = scores[idxPlayer];
+			idxWinner = idxPlayer;
 		}
+	}
 
-		if (diceResult == 1 || scorePlayerOne > 20)
-		{
-			std::cout << "Game Over !!!!!!!!!!!!!!!!!!\n";
-		}else
-		{
-						std::cout << "Do you want to stop ?" << '\n';
-			std::cin >> exitOrNot;
-		}
-
-		std::cout << "SCORE = " << scorePlayerOne << '\n';
+	if (idxWinner != -1)
+	{
+		std::cout << "GG Player #" << idxWinner << " WON !!!!!!!!!!!\n";
+	}else
+	{
+		std::cout << "Nobody wins :(\n";
+	}
 
 
-	} while (exitOrNot != 'y' && diceResult != 1 && scorePlayerOne <= 20);
+
 
 }
+
