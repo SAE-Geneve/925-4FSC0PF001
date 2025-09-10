@@ -28,7 +28,7 @@ int main()
 	do
 	{
 
-		std::cout << "New Turn -------------------------------------\n\n";
+		std::cout << "New Turn\n\n";
 
 		for (int idxPlayer = 0; idxPlayer < nbPlayers; ++idxPlayer)
 		{
@@ -70,6 +70,13 @@ int main()
 			idxWinner = idxPlayer;
 		}
 	}
+
+
+	for (auto& s : scores)
+	{
+		s = 0;
+	}
+
 
 	if (idxWinner != -1)
 	{
