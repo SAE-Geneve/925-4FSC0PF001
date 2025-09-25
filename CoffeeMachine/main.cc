@@ -19,7 +19,7 @@ void main()
 
     do
     {
-        Product productChosen = coffee_machine.DisplayMenu();
+        ProductChoice productChosen = coffee_machine.DisplayMenu();
 
 		if (!coffee_machine.Serve(productChosen))
         {

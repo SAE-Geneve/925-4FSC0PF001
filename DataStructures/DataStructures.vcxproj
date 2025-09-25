@@ -29,8 +29,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{fe014a65-1ec4-4f26-859e-babd7d9dcc27}</ProjectGuid>
-    <RootNamespace>CoffeeMachine</RootNamespace>
+    <ProjectGuid>{06102321-e345-44f9-8ff7-7c0118b130d5}</ProjectGuid>
+    <RootNamespace>DataStructures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -177,13 +177,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="coffee_machine.cc" />
-    <ClCompile Include="main.cc" />
-    <ClCompile Include="product_item.cc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="coffee_machine.hpp" />
-    <ClInclude Include="product_item.hpp" />
+    <ClCompile Include="DataStructures.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
